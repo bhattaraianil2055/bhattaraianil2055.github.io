@@ -47,27 +47,3 @@
     grid-template-columns:1fr;
   }
 }
-.hero-text {
-  transform: translateY(-10px);
-}
-
-.hero h1 {
-  margin: 5px 0;
-}
-
-.hero h2 {
-  margin: 8px 0;
-}
-
-.lead {
-  margin-top: 14px;
-  margin-bottom: 22px;
-}
-
-.buttons {
-  margin: 22px 0;
-}
-
-.socials {
-  margin-top: 4px;
-}
