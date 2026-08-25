@@ -56,3 +56,68 @@
   border-radius: 8px;
   border: 1px solid #e4e9ef;
 }
+.achievement-content {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.achievement-info h3 {
+  color: #0b70d8;
+  font-size: 24px;
+  margin: 0 0 5px;
+}
+
+.achievement-info h4 {
+  font-size: 17px;
+  margin: 0 0 20px;
+  color: #132238;
+}
+
+.achievement-info p {
+  margin: 12px 0;
+  line-height: 1.7;
+}
+
+.achievement-details {
+  margin-top: 22px;
+  padding: 15px 18px;
+  border-left: 3px solid #1681ff;
+  background: #f5f9fd;
+}
+
+.achievement-details p {
+  margin: 5px 0;
+}
+
+.achievement-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.achievement-photo {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #e4e9ef;
+  box-shadow: 0 3px 15px #0b203015;
+}
+
+@media (max-width: 800px) {
+  .achievement-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .achievement-image {
+    order: -1;
+  }
+
+  .achievement-photo {
+    width: 200px;
+  }
+}
