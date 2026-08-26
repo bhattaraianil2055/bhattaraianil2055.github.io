@@ -274,3 +274,92 @@
 .cv-section .achievement-details {
   display: none;
 }
+@media print {
+
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    background: white !important;
+    color: #132238 !important;
+  }
+
+  .navbar,
+  .hero,
+  .contact,
+  .buttons,
+  .socials,
+  .photo-edit,
+  .project-link,
+  .menu {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .section {
+    max-width: 100% !important;
+    padding: 15px 0 !important;
+    margin: 0 !important;
+  }
+
+  .section-title {
+    margin-bottom: 10px !important;
+  }
+
+  .about-grid,
+  .cards.two,
+  .two-panel,
+  .triple {
+    display: block !important;
+  }
+
+  .card,
+  .info-card,
+  .experience {
+    box-shadow: none !important;
+    border: 0 !important;
+    padding: 5px 0 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .skills-columns {
+    display: block !important;
+  }
+
+  .skill-group {
+    margin-bottom: 8px !important;
+  }
+
+  .skill-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .achievement-image {
+    display: none !important;
+  }
+
+  a {
+    color: #132238 !important;
+    text-decoration: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid !important;
+  }
+
+  .card,
+  .skill-group,
+  .achievement-content {
+    page-break-inside: avoid !important;
+  }
+}
