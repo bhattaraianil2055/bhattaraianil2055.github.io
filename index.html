@@ -31,7 +31,9 @@
     networks, telecommunications, and emerging technologies.</p>
       <div class="buttons">
         <a class="btn primary" href="#experience">View My Work ↓</a>
-        <a class="btn secondary" href="assets/Anil-Bhattarai-CV.pdf" download>Download CV ↓</a>
+        <a class="btn secondary" href="#" onclick="downloadCV(); return false;">
+  Download CV ↓
+</a>
       </div>
       <div class="socials">
         <a href="https://www.linkedin.com/in/anil-bhattarai-297b09235" target="_blank" rel="noopener">in</a>
@@ -333,11 +335,11 @@ My goal is to build a strong career in telecommunications, networking, and commu
   </p>
 
   <a
-    href="assets/Anil-Bhattarai-CV.pdf"
-    class="project-link"
-    download>
-    📄 Download CV ↓
-  </a>
+  href="#"
+  class="project-link"
+  onclick="downloadCV(); return false;">
+  📄 Download CV ↓
+</a>
 </article>
 </section>
 
@@ -359,6 +361,103 @@ input.addEventListener("change", e => {
   if (file) photo.src = URL.createObjectURL(file);
 });
 document.querySelector(".menu").addEventListener("click", () => document.querySelector("nav").classList.toggle("open"));
+</script>
+  <!-- CV Generator -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+function downloadCV() {
+
+  const cv = document.createElement("div");
+
+  cv.innerHTML = `
+    <div class="cv-document">
+
+      <div class="cv-header">
+        <h1>Anil Bhattarai</h1>
+        <p>Copenhagen, Denmark</p>
+        <p>
+          bhattaraianil2055@gmail.com |
+          +45 91 78 33 82
+        </p>
+        <p>
+          linkedin.com/in/anil-bhattarai-297b09235 |
+          github.com/bhattaraianil2055
+        </p>
+      </div>
+
+      <div class="cv-section">
+        <h2>PROFILE</h2>
+        <p>${document.querySelector("#about .about-grid > p").innerText}</p>
+      </div>
+
+      <div class="cv-section">
+        <h2>EDUCATION</h2>
+        ${document.querySelector("#education .cards.two").innerHTML}
+      </div>
+
+      <div class="cv-section">
+        <h2>PROFESSIONAL EXPERIENCE</h2>
+        ${document.querySelector("#experience .experience").innerHTML}
+      </div>
+
+      <div class="cv-section">
+        <h2>TECHNICAL SKILLS</h2>
+        ${document.querySelector("#skills .skills-columns").innerHTML}
+      </div>
+
+      <div class="cv-section">
+        <h2>PROJECTS</h2>
+        ${document.querySelector(".project-section .cards.two").innerHTML}
+      </div>
+
+      <div class="cv-section">
+        <h2>ACHIEVEMENTS</h2>
+        ${document.querySelector("#achievements .achievement-info").innerHTML}
+      </div>
+
+      <div class="cv-section">
+        <h2>CAREER GOAL</h2>
+        ${document.querySelector(".two-panel .card:first-child").innerHTML}
+      </div>
+
+    </div>
+  `;
+
+  cv.style.position = "absolute";
+  cv.style.left = "-99999px";
+  cv.style.top = "0";
+  cv.style.width = "794px";
+  cv.style.background = "white";
+
+  document.body.appendChild(cv);
+
+  const options = {
+    margin: 10,
+    filename: "Anil-Bhattarai-CV.pdf",
+    image: {
+      type: "jpeg",
+      quality: 0.98
+    },
+    html2canvas: {
+      scale: 2,
+      useCORS: true
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
+    }
+  };
+
+  html2pdf()
+    .set(options)
+    .from(cv)
+    .save()
+    .then(() => {
+      cv.remove();
+    });
+}
 </script>
 </body>
 </html>
